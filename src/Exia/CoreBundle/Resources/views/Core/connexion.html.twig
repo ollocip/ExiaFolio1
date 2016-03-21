@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+    
+  <head>
+      
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>{% trans %}site.titre{% endtrans %}</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100italic,100,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    
+    {% stylesheets filter='cssrewrite'
+    '@ExiaCoreBundle/Resources/public/css/fix.css'
+    '@ExiaCoreBundle/Resources/public/css/theme.bootstrap.css' 
+    %}
+    
+    <link rel="stylesheet" href="{{ asset_url }}" >
+    {% endstylesheets %}
+    
+  </head>
+  
+  <body>
+    
+        <div class="well" id="bloc_connexion">
+
+            <form action="{{ path('login_check') }}" method="POST" class="form-group form-horizontal">
+
+                <div id="logo_connexion">
+                    {% image '@ExiaCoreBundle/Resources/public/img/test.png' output="images/test.png" %}
+                        <img src="{{ asset_url }}" width="100%" height="100%" alt="Logo Greta">
+                    {% endimage %}
+                </div>
+                
+                {% if error %}
+                    <div class="alert alert-danger">{% trans %}connexion.erreur{% endtrans %}</div>
+                {% endif %}  
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="username">{% trans %}connexion.utilisateur{% endtrans %}</label>
+                    <div class="col-sm-6">
+                        <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="password">{% trans %}connexion.mot_de_passe{% endtrans %}</label>
+                    <div class="col-sm-6">
+                        <input type="password" id="password" name="_password" class="form-control"/>
+                    </div>
+                </div>
+
+                <input id="btn_connexion" type="submit" value="Connexion" class="btn btn-primary"/>
+
+            </form>
+            <div>
+                <a href="{{ path('fos_user_registration_register') }}">S'enregister</a>
+            </div>
+
+        </div>
+        
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    
+    {% javascripts %}
+    <script src="{{ asset_url }}"></script>
+            
+    {% endjavascripts %}
+    
+    </body>
+    
+</html>
+

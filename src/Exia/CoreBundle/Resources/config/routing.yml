@@ -1,0 +1,16 @@
+exia_core_homepage:
+    path:     /
+    defaults: { _controller: ExiaCoreBundle:Core:index }
+
+#####################################################################################
+
+login:
+    path:   /connexion
+    defaults:  { _controller: ExiaCoreBundle:Core:index }
+
+login_check:
+    path:   /login_check
+
+logout:
+    path:   /logout
+

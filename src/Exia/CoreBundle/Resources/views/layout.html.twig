@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+    
+  <head>
+      
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>{% block title %}{% trans %}site.titre{% endtrans %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100italic,100,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    
+    
+    
+    {% stylesheets filter='cssrewrite'
+    '@ExiaCoreBundle/Resources/public/css/theme.bootstrap.css' 
+    '@ExiaCoreBundle/Resources/public/css/bootstrap-datepicker.min.css'
+    '@ExiaCoreBundle/Resources/public/css/bootstrap-multiselect.css'
+    '@ExiaCoreBundle/Resources/public/css/fix.css'
+    '@ExiaCoreBundle/Resources/public/css/edt.css'
+    '@ExiaCoreBundle/Resources/public/css/calendrier.css'
+    %}
+    
+    <link rel="stylesheet" href="{{ asset_url }}" >
+    {% endstylesheets %}
+    
+  </head>
+  
+  
+  <body>
+      
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+            
+        <div class="navbar-right right-spacer-10">
+            <div class="form-group" id="bar-utilisateur">
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <p id="affiche-connexion">Connecté en tant que <b>{{ app.user.username }}</b> - <a id="btn_deconnexion" href="{{ path('logout') }}">Déconnexion</a></p>
+                    {% endif %}
+            </div>
+        </div>
+        
+    </nav>
+
+    <div id="logo">
+        {% image '@ExiaCoreBundle/Resources/public/img/test.png' output="images/test.png" %}
+        <a href="{{ path('exia_core_homepage') }}" >
+            <img src="{{ asset_url }}" width="100%" height="100%" alt="Logo ">
+        </a>
+        {% endimage %}
+    </div>
+    
+    
+    <div class="container-fluid">
+      <div class="row">
+        
+      
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            {% block body %}
+            {% endblock %}
+        </div>
+        
+        <div id="laModale" class="modal fade">
+            {% block modale %}
+            {% endblock %}
+        </div>
+
+      </div>
+    </div>
+        
+        
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    
+    {% javascripts  
+    
+    '@ExiaCoreBundle/Resources/public/js/jquery.tablesorter.js' 
+    '@ExiaCoreBundle/Resources/public/js/jquery.tablesorter.widgets.js' 
+    '@ExiaCoreBundle/Resources/public/js/jspdf.js'
+    '@ExiaCoreBundle/Resources/public/js/jspdf.plugin.autotable.js' 
+    '@ExiaCoreBundle/Resources/public/js/split_text_to_size.js' 
+    '@ExiaCoreBundle/Resources/public/js/standard_fonts_metrics.js'
+    '@ExiaCoreBundle/Resources/public/js/FileSaver.min.js'
+    '@ExiaCoreBundle/Resources/public/js/fileinput.min.js'
+    '@ExiaCoreBundle/Resources/public/js/fileinput_locale_fr.js'
+    '@ExiaCoreBundle/Resources/public/js/bootstrap-datepicker.min.js'  
+    '@ExiaCoreBundle/Resources/public/js/bootstrap-datepicker.fr.js'
+    '@ExiaCoreBundle/Resources/public/js/bootstrap-multiselect.js' 
+    '@ExiaCoreBundle/Resources/public/js/menu.js' 
+    %}
+    <script src="{{ asset_url }}"></script>
+            
+    {% endjavascripts %}   
+    
+    {% block appendablejs %}       
+    {% endblock %}
+    
+    
+    </body>
+    
+</html>
+
