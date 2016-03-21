@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href=".css">
+</head>
+<body>
+    <div id="personnalisation">
+        <img src="{{ profil.illustration }}" alt="Illustration">
+        <p id="message">{{ profil.message }}</p>
+    </div>
+    <div id="identite">
+        {{ profil.nom }}
+        {{ profil.prenom }}
+    </div>
+    <div id="coordonnees">
+        {{ profil.adresse }}
+        {{ profil.mail }}
+        {{ profil.tel }}
+    </div>
+    <div id="experiences">
+        {% for experience in experiences %}
+            <tr>
+                <td>{{ experience.annee }}</td>
+                <td>{{ experience.entreprise }}</td>
+                <td>{{ experience.lieu }}</td>
+                <td>{{ experience.poste }}</td>
+                <td>{{ experience.detail }}</td>
+            </tr>
+        {% endfor %}
+    </div>
+    <div id="formations">
+        {% for formation in formations %}
+            <tr>
+                <td>{{ formation.annee }}</td>
+                <td>{{ formation.titre }}</td>
+                <td>{{ formation.lieu }}</td>
+                <td>{{ formation.diplome }}</td>
+                <td>{{ formation.descriptif }}</td>
+            </tr>
+        {% endfor %}
+    </div>
+    <div id="projets">
+        {% for projet in projets %}
+            <tr>
+                <td><img src="{{ projet.illustration }}" alt="IllustrationProjet"></td>
+                <td>{{ projet.nom }} </td>
+                <td>{{ projet.description }}</td>
+                <td>{{ projet.lien }}</td>
+                <td>{{ projet.telechargement }}</td>
+            </tr>
+        {% endfor %}
+    </div>
+    <div id="competences">
+        {% for competence in competences %}
+            {% if competence.afficher is true %}
+                <tr>
+                    <td>{{ competence.categorie_competences_id }} </td>
+                    <td>{{ competence.nom }}</td>
+                    <td>{{ competence.niveau }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </div>
+</body>
+</html>
