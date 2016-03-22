@@ -44,7 +44,7 @@
                 <li><a href="{{ path('exia_core_profil') }}">Profil</a></li>
                 <li><a href="{{ path('exia_core_portfolio') }}">Portfolio</a></li>
                 <li><a href="{{ path('exia_core_competences') }}">Compétences</a></li>
-                <li><a href="{{ path('exia_core_experience') }}">Expèriences</a></li>
+                <li><a href="{{ path('exia_core_experience') }}">Expériences</a></li>
                 <li><a href="{{ path('exia_core_formations') }}">Formations</a></li>
                 <li><a href="{{ path('exia_core_projet') }}">Projet</a></li>
             </ul>
@@ -58,23 +58,33 @@
     </nav>
     <div id="bar-rouge"></div>
 
-    <div class="container-fluid">
-      <div class="row">
-        
-      
+    <article>
+        <div class="container-fluid">
+          <div class="row">
 
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            {% block body %}
-            {% endblock %}
-        </div>
-        
-        <div id="laModale" class="modal fade">
-            {% block modale %}
-            {% endblock %}
-        </div>
 
-      </div>
-    </div>
+
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                {% block body %}
+                {% endblock %}
+            </div>
+
+            <div id="laModale" class="modal fade">
+                {% block modale %}
+                {% endblock %}
+            </div>
+
+          </div>
+        </div>
+    </article>
+
+
+    <footer>
+        <div id="bar-rouge-bas"></div>
+        <div id="contact">
+            <a href="#" >Nous contacter</a>
+        </div>
+    </footer>
         
         
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
