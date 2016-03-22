@@ -2,6 +2,10 @@ site:
     titre: "ExiaFolio"
 fil_ariane:
     configuration: "Acceuil"
+    ajouter_experience: "Ajouter une expérience"
+    liste_experience: "Liste des expériences"
+    ajouter_formation: "Ajouter une formation"
+    liste_formation: "Liste des formations"
 connexion:
     utilisateur: "Login"
     mot_de_passe: "Mot de passe"
@@ -97,5 +101,6 @@ portfolio:
     competences: "Compétences"
 profil:
     titre: "Profil"
-
-
+accueil:
+  titre: "Acceuil"
+  bienvenue: "Bienvenue sur ExiaFolio"
