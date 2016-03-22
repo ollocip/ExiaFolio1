@@ -1,3 +1,6 @@
 site:
     titre: "ExiaFolio"
+ajout_matiere:
+    col:
+        nom: "Nom"
 

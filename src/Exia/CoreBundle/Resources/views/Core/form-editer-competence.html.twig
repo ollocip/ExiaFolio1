@@ -1,0 +1,56 @@
+
+<div class="champs_requis">{% trans %}champs_requis{% endtrans %}</div>
+
+<div class="well">
+    
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+    {{ form_errors(form) }}
+
+    <div class="form-group">
+        {% set label %}{% trans %}ajout_matiere.col.nom{% endtrans %} *{% endset %}
+        {{ form_label(form.nom, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_errors(form.nom) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+    <div class="form-group">
+        {% set label %}{% trans %}ajout_matiere.col.niveau{% endtrans %} *{% endset %}
+        {{ form_label(form.niveau, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_errors(form.niveau) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.niveau, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+    
+    <div class="form-group">
+        {% set label %}{% trans %}ajout_formation.col.categoriecompetences{% endtrans %}{% endset %}
+        {{ form_label(form.categoriecompetences, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_errors(form.categoriecompetences) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.categoriecompetences, {'attr': {'class': 'form-control multiple_select_professeurs'} }) }}
+
+        </div>
+        <a  href="{{ path('exia_core_ajout_categoriecompetences') }}" >
+        <span title="{% trans %}liste_matieres.tooltip.ajout{% endtrans %}" class="lefted glyphicon glyphicon-plus-sign glyph_color"></span>
+    </a>
+    </div>
+    <div class="form-group">
+        {% set label %}{% trans %}ajout_matiere.col.afficher{% endtrans %} *{% endset %}
+        {{ form_label(form.afficher, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_errors(form.afficher) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.afficher, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+    
+
+    {% set label %}{% trans %}ajout_matiere.bouton_valider{% endtrans %}{% endset %}
+    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}, 'label': label }) }}
+    <a class="btn btn-default" href="{{ path('exia_core_competences')}}">{% trans %}ajout_matiere.bouton_annuler{% endtrans %}</a>
+
+
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+    
+</div>

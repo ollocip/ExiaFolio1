@@ -1,0 +1,201 @@
+<?php
+namespace Exia\CoreBundle\Entity;
+use Doctrine\ORM\Mapping AS ORM;
+
+/**
+ * @ORM\Entity
+ */
+class Experiences
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $ID;
+
+    /**
+     * @ORM\Column(type="integer", length=4, nullable=true)
+     */
+    private $Annee;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Poste;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Entreprise;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $Detail;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Lieu;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Exia\CoreBundle\Entity\Profil", inversedBy="experiences")
+     * @ORM\JoinColumn(name="profil_id", referencedColumnName="id", nullable=false)
+     */
+    private $profil;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Exia\CoreBundle\Entity\Competence", inversedBy="experiences")
+     * @ORM\JoinColumn(name="competence_id", referencedColumnName="ID")
+     */
+    private $competence;
+
+    /**
+     * Get ID
+     *
+     * @return integer 
+     */
+    public function getID()
+    {
+        return $this->ID;
+    }
+
+    /**
+     * Set Annee
+     *
+     * @param integer $annee
+     * @return Experiences
+     */
+    public function setAnnee($annee)
+    {
+        $this->Annee = $annee;
+
+        return $this;
+    }
+
+    /**
+     * Get Annee
+     *
+     * @return integer 
+     */
+    public function getAnnee()
+    {
+        return $this->Annee;
+    }
+
+    /**
+     * Set Poste
+     *
+     * @param string $poste
+     * @return Experiences
+     */
+    public function setPoste($poste)
+    {
+        $this->Poste = $poste;
+
+        return $this;
+    }
+
+    /**
+     * Get Poste
+     *
+     * @return string 
+     */
+    public function getPoste()
+    {
+        return $this->Poste;
+    }
+
+    /**
+     * Set Entreprise
+     *
+     * @param string $entreprise
+     * @return Experiences
+     */
+    public function setEntreprise($entreprise)
+    {
+        $this->Entreprise = $entreprise;
+
+        return $this;
+    }
+
+    /**
+     * Get Entreprise
+     *
+     * @return string 
+     */
+    public function getEntreprise()
+    {
+        return $this->Entreprise;
+    }
+
+    /**
+     * Set Detail
+     *
+     * @param string $detail
+     * @return Experiences
+     */
+    public function setDetail($detail)
+    {
+        $this->Detail = $detail;
+
+        return $this;
+    }
+
+    /**
+     * Get Detail
+     *
+     * @return string 
+     */
+    public function getDetail()
+    {
+        return $this->Detail;
+    }
+
+    /**
+     * Set Lieu
+     *
+     * @param string $lieu
+     * @return Experiences
+     */
+    public function setLieu($lieu)
+    {
+        $this->Lieu = $lieu;
+
+        return $this;
+    }
+
+    /**
+     * Get Lieu
+     *
+     * @return string 
+     */
+    public function getLieu()
+    {
+        return $this->Lieu;
+    }
+
+    /**
+     * Set profil
+     *
+     * @param \Exia\CoreBundle\Entity\Profil $profil
+     * @return Experiences
+     */
+    public function setProfil(\Exia\CoreBundle\Entity\Profil $profil)
+    {
+        $this->profil = $profil;
+
+        return $this;
+    }
+
+    /**
+     * Get profil
+     *
+     * @return \Exia\CoreBundle\Entity\Profil 
+     */
+    public function getProfil()
+    {
+        return $this->profil;
+    }
+}

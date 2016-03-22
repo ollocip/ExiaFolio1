@@ -1,0 +1,58 @@
+
+<div class="champs_requis">{% trans %}champs_requis{% endtrans %}</div>
+
+<div class="well">
+    
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+    {{ form_errors(form) }}
+
+    <div class="form-group">
+        {% set label %}{% trans %}ajout_matiere.col.annee{% endtrans %} *{% endset %}
+        {{ form_label(form.annee, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_errors(form.annee) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.annee, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+    <div class="form-group">
+        {% set label %}{% trans %}ajout_matiere.col.titre{% endtrans %} *{% endset %}
+        {{ form_label(form.titre, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_errors(form.titre) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.titre, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+    <div class="form-group">
+        {% set label %}{% trans %}ajout_matiere.col.diplome{% endtrans %} *{% endset %}
+        {{ form_label(form.diplome, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_errors(form.diplome) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.diplome, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+    <div class="form-group">
+        {% set label %}{% trans %}ajout_matiere.col.lieu{% endtrans %} *{% endset %}
+        {{ form_label(form.lieu, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_errors(form.lieu) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.lieu, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+    <div class="form-group">
+        {% set label %}{% trans %}ajout_matiere.col.descriptif{% endtrans %} *{% endset %}
+        {{ form_label(form.descriptif, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_errors(form.descriptif) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.descriptif, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    {% set label %}{% trans %}ajout_matiere.bouton_valider{% endtrans %}{% endset %}
+    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}, 'label': label }) }}
+    <a class="btn btn-default" href="{{ path('exia_core_formations')}}">{% trans %}ajout_matiere.bouton_annuler{% endtrans %}</a>
+
+
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+    
+</div>

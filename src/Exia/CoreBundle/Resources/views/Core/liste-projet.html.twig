@@ -1,0 +1,73 @@
+{% extends "ExiaCoreBundle::layout.html.twig" %}
+
+{% block title %}
+    
+    {% trans %}liste_competence.titre{% endtrans %} - {{ parent() }}
+    
+{% endblock %}
+
+{% block body %}
+    
+<h1 class="page-header">{% trans %}liste_competence.titre{% endtrans %}
+    <a  href="{{ path('exia_core_ajout_projet') }}" >
+        <span title="{% trans %}liste_matieres.tooltip.ajout{% endtrans %}" class="lefted glyphicon glyphicon-plus-sign glyph_color"></span>
+    </a>
+</h1>
+    
+
+
+<div class="tab-content">
+    
+
+    <table id="table-matiere" class="table table-condensed top-spacer-10 tablesorter-bootstrap">
+
+        <thead>
+            <tr>
+
+                <th>{% trans %}liste_matieres.col.nom{% endtrans %}</th>
+                <th>{% trans %}liste_matieres.col.description{% endtrans %}</th>
+                <th>{% trans %}liste_matieres.col.illustration{% endtrans %}</th>
+                <th>{% trans %}liste_matieres.col.lien{% endtrans %}</th>
+                <th>{% trans %}liste_matieres.col.telechargement{% endtrans %}</th>
+                <th class="sorter-false small-column"></th>
+                <th class="sorter-false small-column"></th>
+
+               
+           
+
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for projet in projets %}
+                <tr>
+                    <td>{{ projet.nom }}</td>
+                    <td>{{ projet.description }}</td>
+                    <td>{{ projet.illustration }}</td>
+                    <td>{{ projet.lien }}</td>
+                    <td>{{ projet.telechargement }}</td>
+                    <td class="centered-column-content">
+                        <a  href="{{ path('exia_core_editer_projet', { 'id'  : projet.id }) }}" >
+                            <span title="{% trans %}liste_projet.tooltip.editer{% endtrans %}" class="glyphicon glyphicon-edit pointable tooltip_editer"></span>
+                        </a>
+                    </td>
+                    <td class="centered-column-content">
+                        <a  href="{{ path('exia_core_supprimer_projet', { 'id'  : projet.id }) }}" >
+                            <span title="{% trans %}projet.tooltip.supprimer{% endtrans %}" class="glyphicon glyphicon-remove delete pointer tooltip_suppression"></span>
+                        </a>
+                    </td>
+                    
+                 
+                </tr>
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+       
+</div>
+
+{% endblock %}
+
+

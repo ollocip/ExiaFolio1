@@ -1,0 +1,76 @@
+{% extends "ExiaCoreBundle::layout.html.twig" %}
+
+{% block title %}
+    
+    {% trans %}liste_experience.titre{% endtrans %} - {{ parent() }}
+    
+{% endblock %}
+
+{% block body %}
+    
+<h1 class="page-header">{% trans %}liste_experience.titre{% endtrans %}
+    <a  href="{{ path('exia_core_ajout_experience') }}" >
+        <span title="{% trans %}liste_matieres.tooltip.ajout{% endtrans %}" class="lefted glyphicon glyphicon-plus-sign glyph_color"></span>
+    </a>
+</h1>
+    
+
+
+<div class="tab-content">
+    
+
+    <table id="table-matiere" class="table table-condensed top-spacer-10 tablesorter-bootstrap">
+
+        <thead>
+            <tr>
+
+                <th>{% trans %}liste_matieres.col.annee{% endtrans %}</th>
+                <th>{% trans %}liste_matieres.col.poste{% endtrans %}</th>
+                <th>{% trans %}liste_matieres.col.entreprise{% endtrans %}</th>
+                <th>{% trans %}liste_matieres.col.detail{% endtrans %}</th>
+                <th>{% trans %}liste_matieres.col.lieu{% endtrans %}</th>
+                <th>{% trans %}liste_matieres.col.competence{% endtrans %}</th>
+                <th class="sorter-false small-column"></th>
+                <th class="sorter-false small-column"></th>
+
+               
+           
+
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for experience in experiences %}
+                <tr>
+                    <td>{{ experience.annee }}</td>
+                    <td>{{ experience.poste }}</td>
+                    <td>{{ experience.entreprise }}</td>
+                    <td>{{ experience.detail }}</td>
+                    <td>{{ experience.lieu }}</td>
+                    <td>{{ experience.competence.nom}}</td>
+                    <td class="centered-column-content">
+                        <a  href="{{ path('exia_core_editer_experience', { 'id'  : experience.id }) }}" >
+                            <span title="{% trans %}liste_experience.tooltip.editer{% endtrans %}" class="glyphicon glyphicon-edit pointable tooltip_editer"></span>
+                        </a>
+                    </td>
+                    <td class="centered-column-content">
+                        <a  href="{{ path('exia_core_supprimer_experience', { 'id'  : experience.id }) }}" >
+                            <span title="{% trans %}experience.tooltip.supprimer{% endtrans %}" class="glyphicon glyphicon-remove delete pointer tooltip_suppression"></span>
+                        </a>
+                    </td>
+                
+                    
+                 
+                </tr>
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+       
+</div>
+
+{% endblock %}
+
+

@@ -1,0 +1,116 @@
+{% extends "ExiaCoreBundle::layout.html.twig" %}
+
+{% block title %}
+    
+    {% trans %}profil.titre{% endtrans %} - {{ parent() }}
+    
+{% endblock %}
+
+{% block body %}
+    
+
+    
+
+
+<div class="tab-content">
+    
+
+ 
+
+        <tbody>
+
+            
+                <tr>
+                    <td>{{ profil.nom }}</td>
+                    <td>{{ profil.prenom }}</td>
+                    <td>{{ profil.adresse }}</td>
+                    <td>{{ profil.mail }}</td>
+                    <td>{{ profil.message }}</td>
+                    <td>{{ profil.illustration }}</td>
+                 
+                </tr>
+          
+            <td class="centered-column-content">
+                        <a  href="{{ path('exia_core_editer_profil', { 'id'  : profil.id }) }}" >
+                            <span title="{% trans %}profil.tooltip.editer{% endtrans %}" class="glyphicon glyphicon-edit pointable tooltip_editer"></span>
+                        </a>
+                    </td>
+        </tbody>
+
+   
+       
+</div>
+
+{% endblock %}
+
+
+{% block appendablejs %}
+
+<script type="text/javascript">
+
+    var sPath;
+
+    $('#laModale').on('show.bs.modal', function(e) 
+    {
+        sPath = $(e.relatedTarget).data('path');
+    });
+
+    $("#submit-button").click(function(){
+        $.ajax
+        ({
+            url: sPath, 
+            success: function(result)
+            {
+                $('.selected').remove();
+                $('#laModale').modal('hide');
+            }
+        });
+    });
+
+    $('#table-matiere > tbody > tr').click(function (e) 
+    {
+        $(".selected").removeClass('selected');
+        $(this).addClass('selected');
+    });
+
+    $(document).ready(function() 
+    { 
+        $("#table-matiere").tablesorter({
+            theme: 'bootstrap',
+            widthFixed: true,
+            showProcessing: false,
+            headerTemplate: '{content}{icon}',
+            onRenderTemplate: null,
+            onRenderHeader: function (index) 
+            {
+                $(this).find('div.tablesorter-header-inner').addClass('roundedCorners');
+            },
+            cancelSelection: true,
+            dateFormat: "mmddyyyy",
+            sortMultiSortKey: "shiftKey",
+            sortResetKey: 'ctrlKey',
+            usNumberFormat: false,
+            delayInit: false,
+            serverSideSorting: false,
+            ignoreCase: true,
+            sortForce: null,
+            sortAppend: null,
+            sortInitialOrder: "asc",
+            sortLocaleCompare: false,
+            sortReset: false,
+            sortRestart: false,
+            emptyTo: "bottom",
+            stringTo: "max",
+            textSorter: null,
+            initWidgets: true,
+            widgets: ['uitheme', 'columns', 'filter'],
+            widgetOptions: {
+                filter_columnFilters: false,
+                filter_external: '.search',
+                filter_reset: 'button.reset'
+            }
+        });
+    });
+</script>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "ExiaCoreBundle::layout.html.twig" %}
+
+{% block title %}
+    
+    {% trans %}liste_competence.titre{% endtrans %} - {{ parent() }}
+    
+{% endblock %}
+
+{% block body %}
+    
+<h1 class="page-header">{% trans %}liste_competence.titre{% endtrans %}
+    <a  href="{{ path('exia_core_ajout_competence') }}" >
+        <span title="{% trans %}liste_matieres.tooltip.ajout{% endtrans %}" class="lefted glyphicon glyphicon-plus-sign glyph_color"></span>
+    </a>
+</h1>
+    
+
+
+<div class="tab-content">
+    
+
+    <table id="table-matiere" class="table table-condensed top-spacer-10 tablesorter-bootstrap">
+
+        <thead>
+            <tr>
+
+                <th>{% trans %}liste_matieres.col.nom{% endtrans %}</th>
+                <th>{% trans %}liste_matieres.col.niveau{% endtrans %}</th>
+                <th>{% trans %}liste_matieres.col.categoriecompetences{% endtrans %}</th>
+                <th class="sorter-false small-column"></th>
+                <th class="sorter-false small-column"></th>
+               
+           
+
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for competence in competences %}
+                <tr>
+                    <td>{{ competence.nom }}</td>
+                    <td>{{ competence.niveau }}</td>
+                    <td>{{ competence.categoriecompetences.categorie }}</td>
+                    <td class="centered-column-content">
+                        <a  href="{{ path('exia_core_editer_competence', { 'id'  : competence.id }) }}" >
+                            <span title="{% trans %}liste_competence.tooltip.editer{% endtrans %}" class="glyphicon glyphicon-edit pointable tooltip_editer"></span>
+                        </a>
+                    </td>
+                    <td class="centered-column-content">
+                        <a  href="{{ path('exia_core_supprimer_competence', { 'id'  : competence.id }) }}" >
+                            <span title="{% trans %}competence.tooltip.supprimer{% endtrans %}" class="glyphicon glyphicon-remove delete pointer tooltip_suppression"></span>
+                        </a>
+                    </td>
+                    
+                 
+                </tr>
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+       
+</div>
+
+{% endblock %}
+
+

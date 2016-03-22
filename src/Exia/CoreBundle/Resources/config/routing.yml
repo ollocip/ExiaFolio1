@@ -2,6 +2,86 @@ exia_core_homepage:
     path:     /
     defaults: { _controller: ExiaCoreBundle:Core:index }
 
+
+#####################################################################################
+
+exia_core_formations:
+    path:     /formations
+    defaults: { _controller: ExiaCoreBundle:Core:Formations }
+exia_core_ajout_formation:
+    path:     /formation/ajout
+    defaults: { _controller: ExiaCoreBundle:Core:AjoutFormation }
+exia_core_editer_formation:
+    path:     /formation/editer/{id}
+    defaults: { _controller: ExiaCoreBundle:Core:EditerFormation }
+exia_core_supprimer_formation:
+    path:     /formation/supprimer/{id}
+    defaults: { _controller: ExiaCoreBundle:Core:supprimerFormation }
+
+#####################################################################################
+
+
+exia_core_profil:
+    path:     /profil
+    defaults: { _controller: ExiaCoreBundle:Core:Profil }
+exia_core_ajout_profil:
+    path:     /profil/ajout
+    defaults: { _controller: ExiaCoreBundle:Core:AjoutProfil }
+exia_core_editer_profil:
+    path:     /profil/editer/{id}
+    defaults: { _controller: ExiaCoreBundle:Core:EditerProfil }
+#####################################################################################
+
+exia_core_competences:
+    path:     /competences
+    defaults: { _controller: ExiaCoreBundle:Core:competences }
+exia_core_ajout_competence:
+    path:     /competence/ajout
+    defaults: { _controller: ExiaCoreBundle:Core:AjoutCompetence }
+exia_core_editer_competence:
+    path:     /competence/editer/{id}
+    defaults: { _controller: ExiaCoreBundle:Core:EditerCompetence }
+exia_core_supprimer_competence:
+    path:     /competence/supprimer/{id}
+    defaults: { _controller: ExiaCoreBundle:Core:supprimerCompetence }
+
+#####################################################################################
+
+exia_core_ajout_categoriecompetences:
+    path:     /categorie_competence/ajout
+    defaults: { _controller: ExiaCoreBundle:Core:AjoutCategorieCompetences }
+
+#####################################################################################
+exia_core_projet:
+    path:     /projet
+    defaults: { _controller: ExiaCoreBundle:Core:Projet }
+exia_core_ajout_projet:
+    path:     /projet/ajout
+    defaults: { _controller: ExiaCoreBundle:Core:AjoutProjet }
+exia_core_editer_projet:
+    path:     /projet/editer/{id}
+    defaults: { _controller: ExiaCoreBundle:Core:EditerProjet }
+exia_core_supprimer_projet:
+    path:     /projet/supprimer/{id}
+    defaults: { _controller: ExiaCoreBundle:Core:supprimerProjet }
+
+
+#####################################################################################
+
+exia_core_experience:
+    path:     /experience
+    defaults: { _controller: ExiaCoreBundle:Core:Experience }
+exia_core_ajout_experience:
+    path:     /experience/ajout
+    defaults: { _controller: ExiaCoreBundle:Core:AjoutExperience }
+exia_core_editer_experience:
+    path:     /experience/editer/{id}
+    defaults: { _controller: ExiaCoreBundle:Core:EditerExperience }
+exia_core_supprimer_experience:
+    path:     /experience/supprimer/{id}
+    defaults: { _controller: ExiaCoreBundle:Core:supprimerExperience }
+
+
 #####################################################################################
 
 login:

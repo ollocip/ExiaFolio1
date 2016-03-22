@@ -1,0 +1,16 @@
+{% extends 'ExiaCoreBundle::layout.html.twig' %}
+
+{% block body %}
+    
+<h1 class="page-header">{% trans %}editer_experience.titre{% endtrans %}</h1>
+
+<div class="fil_ariane">{% trans %}fil_ariane.experience{% endtrans %} > 
+    <a href="{{ path('exia_core_experience') }}">{% trans %}fil_ariane.liste_experience{% endtrans %}</a> 
+     
+    <a href="">{% trans %}fil_ariane.editer_experience{% endtrans %}</a>
+</div>
+
+{% include 'ExiaCoreBundle:Core:form-editer-experience.html.twig' %}
+
+{% endblock %}
+

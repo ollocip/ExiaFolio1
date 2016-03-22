@@ -16,11 +16,19 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt|error|console)|css|images|js)/
             security: false
-  
+        #portfolio:
+         #   pattern:   ^/portfolio
+          #  anonymous: true
+        main_login:
+            pattern:   ^/connexion
+            anonymous: true
+        register:
+            pattern:   ^/register
+            anonymous: true
 
         main:
             pattern:   ^/
-            anonymous: true
+            anonymous: false
             provider:  main
             form_login:
                 login_path: login

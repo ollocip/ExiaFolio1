@@ -1,0 +1,61 @@
+
+<div class="champs_requis">{% trans %}champs_requis{% endtrans %}</div>
+
+<div class="well">
+    
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+    {{ form_errors(form) }}
+
+    <div class="form-group">
+        {% set label %}{% trans %}ajout_matiere.col.nom{% endtrans %} *{% endset %}
+        {{ form_label(form.nom, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_errors(form.nom) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+    <div class="form-group">
+        {% set label %}{% trans %}ajout_matiere.col.description{% endtrans %} *{% endset %}
+        {{ form_label(form.description, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_errors(form.description) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+    
+  
+    <div class="form-group">
+        {% set label %}{% trans %}ajout_matiere.col.illustration{% endtrans %} *{% endset %}
+        {{ form_label(form.illustration, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_errors(form.illustration) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.illustration, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+    <div class="form-group">
+        {% set label %}{% trans %}ajout_matiere.col.lien{% endtrans %} *{% endset %}
+        {{ form_label(form.lien, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_errors(form.lien) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.lien, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+    <div class="form-group">
+        {% set label %}{% trans %}ajout_matiere.col.telechargement{% endtrans %} *{% endset %}
+        {{ form_label(form.telechargement, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_errors(form.telechargement) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.telechargement, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+    
+
+    {% set label %}{% trans %}ajout_projet.bouton_valider{% endtrans %}{% endset %}
+    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}, 'label': label }) }}
+    <a class="btn btn-default" href="{{ path('exia_core_competences')}}">{% trans %}ajout_matiere.bouton_annuler{% endtrans %}</a>
+
+
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+    
+</div>

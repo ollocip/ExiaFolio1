@@ -30,27 +30,4 @@ class User extends BaseUser
         parent::__construct();
         // your own logic
     }
-
-    /**
-     * Set profil
-     *
-     * @param \Exia\CoreBundle\Entity\Profil $profil
-     * @return User
-     */
-    public function setProfil(\Exia\CoreBundle\Entity\Profil $profil = null)
-    {
-        $this->profil = $profil;
-
-        return $this;
-    }
-
-    /**
-     * Get profil
-     *
-     * @return \Exia\CoreBundle\Entity\Profil 
-     */
-    public function getProfil()
-    {
-        return $this->profil;
-    }
 }
