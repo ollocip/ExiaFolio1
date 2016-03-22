@@ -6,6 +6,10 @@ fil_ariane:
     liste_experience: "Liste des expériences"
     ajouter_formation: "Ajouter une formation"
     liste_formation: "Liste des formations"
+    ajouter_competence: "Ajouter une compétence"
+    liste_competence: "Liste des compétences"
+    ajouter_projet: "Ajouter un projet"
+    liste_projet: "Liste des projets"
 connexion:
     utilisateur: "Login"
     mot_de_passe: "Mot de passe"

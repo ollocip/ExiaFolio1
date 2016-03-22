@@ -4,7 +4,10 @@
     
 <h1 class="page-header">{% trans %}ajout_competence.titre{% endtrans %}</h1>
 
-
+<div class="fil_ariane">{% trans %}fil_ariane.configuration{% endtrans %} >
+    <a href="{{ path('exia_core_competences') }}">{% trans %}fil_ariane.liste_competence{% endtrans %}</a> >
+    <a href="">{% trans %}fil_ariane.ajouter_competence{% endtrans %}</a>
+</div>
 
 {% include 'ExiaCoreBundle:Core:form-competence.html.twig' %}
 

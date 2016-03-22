@@ -4,6 +4,10 @@
     
 <h1 class="page-header">{% trans %}ajout_projet.titre{% endtrans %}</h1>
 
+    <div class="fil_ariane">{% trans %}fil_ariane.configuration{% endtrans %} >
+        <a href="{{ path('exia_core_projet') }}">{% trans %}fil_ariane.liste_projet{% endtrans %}</a> >
+        <a href="">{% trans %}fil_ariane.ajouter_projet{% endtrans %}</a>
+    </div>
 
 
 {% include 'ExiaCoreBundle:Core:form-projet.html.twig' %}
