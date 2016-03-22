@@ -447,6 +447,21 @@ class CoreController extends Controller
         return $this->render('ExiaCoreBundle:Core:portfolio.html.twig', array('experiences' => $experiences,
             'projets' => $projets,'competences' => $competences,'profil' => $profil,'formations' => $formations));
     }
+
+     public function VisualiserPortfolioAction(profil $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $experiences = $em->getRepository('ExiaCoreBundle:Experiences')->findByProfil($id);
+        $projets = $em->getRepository('ExiaCoreBundle:Projet')->findByProfil($id);
+        $competences = $em->getRepository('ExiaCoreBundle:Competence')->findByProfil($id);
+        $profil = $em->getRepository('ExiaCoreBundle:Profil')->find($id);
+        $formations = $em->getRepository('ExiaCoreBundle:Formation')->findByProfil($id);
+
+
+        return $this->render('ExiaCoreBundle:Core:portfolio.html.twig', array('experiences' => $experiences,
+            'projets' => $projets,'competences' => $competences,'profil' => $profil,'formations' => $formations));
+    }
+    
     
 
 }
