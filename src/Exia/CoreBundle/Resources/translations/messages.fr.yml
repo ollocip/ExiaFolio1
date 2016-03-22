@@ -1,5 +1,9 @@
 site:
     titre: "ExiaFolio"
+connexion:
+    utilisateur: "Login"
+    mot_de_passe: "Mot de passe"
+    erreur: "Informations incorrectes"
 ajout_matiere:
     col:
         nom: "Nom"
