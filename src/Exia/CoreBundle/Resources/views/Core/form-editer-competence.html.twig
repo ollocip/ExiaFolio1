@@ -35,15 +35,7 @@
         <span title="{% trans %}liste_matieres.tooltip.ajout{% endtrans %}" class="lefted glyphicon glyphicon-plus-sign glyph_color"></span>
     </a>
     </div>
-    <div class="form-group">
-        {% set label %}{% trans %}ajout_matiere.col.afficher{% endtrans %} *{% endset %}
-        {{ form_label(form.afficher, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-        {{ form_errors(form.afficher) }}
-        <div class="col-sm-4">
-            {{ form_widget(form.afficher, {'attr': {'class': 'form-control'}}) }}
-        </div>
-    </div>
-    
+
 
     {% set label %}{% trans %}ajout_matiere.bouton_valider{% endtrans %}{% endset %}
     {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}, 'label': label }) }}

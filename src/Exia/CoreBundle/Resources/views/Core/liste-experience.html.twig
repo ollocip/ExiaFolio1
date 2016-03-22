@@ -48,7 +48,11 @@
                     <td>{{ experience.entreprise }}</td>
                     <td>{{ experience.detail }}</td>
                     <td>{{ experience.lieu }}</td>
+                    {% if  experience.competence %}
                     <td>{{ experience.competence.nom}}</td>
+                    {% else %}
+                    <td></td>
+                    {% endif %}
                     <td class="centered-column-content">
                         <a  href="{{ path('exia_core_editer_experience', { 'id'  : experience.id }) }}" >
                             <span title="{% trans %}liste_experience.tooltip.editer{% endtrans %}" class="glyphicon glyphicon-edit pointable tooltip_editer"></span>

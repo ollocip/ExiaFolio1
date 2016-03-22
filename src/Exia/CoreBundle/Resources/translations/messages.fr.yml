@@ -7,13 +7,4 @@ connexion:
 ajout_matiere:
     col:
         nom: "Nom"
-        prenom: "Prénom"
-        adresse: "Adresse"
-        mail: "Email"
-        tel: "Téléphone"
-        message: "Description"
-        illustration: "Photo de profil"
-        theme: "Choix du thème"
-    bouton_valider: "Valider"
-    bouton_annuler: "Annuler"
 

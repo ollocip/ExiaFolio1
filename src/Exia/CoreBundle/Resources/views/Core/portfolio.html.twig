@@ -1,24 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href=".css">
-</head>
-<body>
+{% extends 'ExiaCoreBundle::layout.html.twig' %}
+{% block body %}
+<h1 class="page-header">{% trans %}portfolio.utilisateur{% endtrans %}  {{ profil.nom }}
+        {{ profil.prenom }}</h1>
     <div id="personnalisation">
         <img src="{{ profil.illustration }}" alt="Illustration">
         <p id="message">{{ profil.message }}</p>
     </div>
-    <div id="identite">
-        {{ profil.nom }}
-        {{ profil.prenom }}
-    </div>
+<h1 class="page-header">{% trans %}portfolio.profil{% endtrans %}</h1>
     <div id="coordonnees">
         {{ profil.adresse }}
         {{ profil.mail }}
-        {{ profil.tel }}
+        0{{ profil.tel }}
     </div>
+<h1 class="page-header">{% trans %}portfolio.experiences{% endtrans %}</h1>    
     <div id="experiences">
         {% for experience in experiences %}
             <tr>
@@ -30,6 +24,7 @@
             </tr>
         {% endfor %}
     </div>
+<h1 class="page-header">{% trans %}portfolio.formations{% endtrans %}</h1>  
     <div id="formations">
         {% for formation in formations %}
             <tr>
@@ -41,6 +36,7 @@
             </tr>
         {% endfor %}
     </div>
+<h1 class="page-header">{% trans %}portfolio.projets{% endtrans %}</h1>  
     <div id="projets">
         {% for projet in projets %}
             <tr>
@@ -52,16 +48,16 @@
             </tr>
         {% endfor %}
     </div>
+<h1 class="page-header">{% trans %}portfolio.competences{% endtrans %}</h1> 
     <div id="competences">
         {% for competence in competences %}
-            {% if competence.afficher is true %}
+            
                 <tr>
-                    <td>{{ competence.categorie_competences_id }} </td>
+                    <td>{{ competence.categorieCompetences.categorie }} </td>
                     <td>{{ competence.nom }}</td>
                     <td>{{ competence.niveau }}</td>
                 </tr>
-            {% endif %}
+            
         {% endfor %}
     </div>
-</body>
-</html>
+{% endblock %}

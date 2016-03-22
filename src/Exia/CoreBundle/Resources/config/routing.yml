@@ -82,6 +82,12 @@ exia_core_supprimer_experience:
     defaults: { _controller: ExiaCoreBundle:Core:supprimerExperience }
 
 
+
+#####################################################################################
+
+exia_core_portfolio:
+    path:     /portfolio
+    defaults: { _controller: ExiaCoreBundle:Core:Portfolio }
 #####################################################################################
 
 login:

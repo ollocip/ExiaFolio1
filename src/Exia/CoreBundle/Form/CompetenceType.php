@@ -27,7 +27,6 @@ class CompetenceType extends AbstractType
             'multiple' => false
 ))
         
-        ->add('afficher','checkbox', array('required' => false))
         ->add('save','submit');
     }
 

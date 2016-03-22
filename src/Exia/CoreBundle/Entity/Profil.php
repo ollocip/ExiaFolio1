@@ -54,7 +54,7 @@ class Profil
      */
     private $Theme ;
     /**
-     * @ORM\Column(type="string", length=5, nullable=true)
+     * @ORM\Column(type="boolean", length=1, nullable=true)
      */
     private $AfficherNom ;
     /**
