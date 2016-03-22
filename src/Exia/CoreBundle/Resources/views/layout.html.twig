@@ -19,8 +19,6 @@
     '@ExiaCoreBundle/Resources/public/css/bootstrap-datepicker.min.css'
     '@ExiaCoreBundle/Resources/public/css/bootstrap-multiselect.css'
     '@ExiaCoreBundle/Resources/public/css/fix.css'
-    '@ExiaCoreBundle/Resources/public/css/edt.css'
-    '@ExiaCoreBundle/Resources/public/css/calendrier.css'
     %}
     
     <link rel="stylesheet" href="{{ asset_url }}" >
@@ -31,31 +29,39 @@
   
   <body>
       
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-            
-        <div class="navbar-right right-spacer-10">
-            <div class="form-group" id="bar-utilisateur">
-                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                        <p id="affiche-connexion">Connecté en tant que <b>{{ app.user.username }}</b> - <a id="btn_deconnexion" href="{{ path('logout') }}">Déconnexion</a></p>
-                    {% endif %}
-            </div>
+    <nav class="navbar">
+        <div id="logo">
+            {% image '@ExiaCoreBundle/Resources/public/img/logo.png' output="images/logo.png" %}
+            <a href="{{ path('exia_core_homepage') }}" >
+                <img src="{{ asset_url }}" width="100%" height="100%" alt="Logo ">
+            </a>
+            {% endimage %}
         </div>
-        
-    </nav>
 
-    <div id="logo">
-        {% image '@ExiaCoreBundle/Resources/public/img/test.png' output="images/test.png" %}
-        <a href="{{ path('exia_core_homepage') }}" >
-            <img src="{{ asset_url }}" width="100%" height="100%" alt="Logo ">
-        </a>
-        {% endimage %}
-    </div>
-    
-    
+        <div id="navigation">
+            <ul id="menu">
+                <li><a href="">Acceuil</a></li>
+                <li><a href="">Profil</a></li>
+                <li><a href="">Portfolio</a></li>
+                <li><a href="">Compétences</a></li>
+                <li><a href="">Expèriences</a></li>
+                <li><a href="">Formations</a></li>
+                <li><a href="">Projet</a></li>
+            </ul>
+        </div>
+
+        <div class="form-group" id="bar-utilisateur">
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <p id="affiche-connexion">Connecté en tant que <b>{{ app.user.username }}</b> <br> <a id="btn_deconnexion" href="{{ path('logout') }}">Déconnexion</a></p>
+                {% endif %}
+        </div>
+    </nav>
+    <div id="bar-rouge"></div>
+
     <div class="container-fluid">
       <div class="row">
         
-    
+      
 
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             {% block body %}
