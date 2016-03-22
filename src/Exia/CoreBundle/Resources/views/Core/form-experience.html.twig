@@ -1,13 +1,11 @@
-
-<div class="champs_requis">{% trans %}champs_requis{% endtrans %}</div>
-
+<br>
 <div class="well">
     
     {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
     {{ form_errors(form) }}
 
     <div class="form-group">
-        {% set label %}{% trans %}ajout_matiere.col.annee{% endtrans %} *{% endset %}
+        {% set label %}{% trans %}ajout_experience.col.annee{% endtrans %} *{% endset %}
         {{ form_label(form.annee, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
         {{ form_errors(form.annee) }}
         <div class="col-sm-4">
@@ -15,7 +13,7 @@
         </div>
     </div>
     <div class="form-group">
-        {% set label %}{% trans %}ajout_matiere.col.poste{% endtrans %} *{% endset %}
+        {% set label %}{% trans %}ajout_experience.col.poste{% endtrans %} *{% endset %}
         {{ form_label(form.poste, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
         {{ form_errors(form.poste) }}
         <div class="col-sm-4">
@@ -23,7 +21,7 @@
         </div>
     </div>
     <div class="form-group">
-        {% set label %}{% trans %}ajout_matiere.col.entreprise{% endtrans %} *{% endset %}
+        {% set label %}{% trans %}ajout_experience.col.entreprise{% endtrans %} *{% endset %}
         {{ form_label(form.entreprise, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
         {{ form_errors(form.entreprise) }}
         <div class="col-sm-4">
@@ -31,7 +29,7 @@
         </div>
     </div>
     <div class="form-group">
-        {% set label %}{% trans %}ajout_matiere.col.detail{% endtrans %} *{% endset %}
+        {% set label %}{% trans %}ajout_experience.col.detail{% endtrans %} *{% endset %}
         {{ form_label(form.detail, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
         {{ form_errors(form.detail) }}
         <div class="col-sm-4">
@@ -39,7 +37,7 @@
         </div>
     </div>
     <div class="form-group">
-        {% set label %}{% trans %}ajout_matiere.col.lieu{% endtrans %} *{% endset %}
+        {% set label %}{% trans %}ajout_experience.col.lieu{% endtrans %} *{% endset %}
         {{ form_label(form.lieu, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
         {{ form_errors(form.lieu) }}
         <div class="col-sm-4">
@@ -47,7 +45,7 @@
         </div>
     </div>
     <div class="form-group">
-        {% set label %}{% trans %}ajout_formation.col.competence{% endtrans %}{% endset %}
+        {% set label %}{% trans %}ajout_experience.col.competence{% endtrans %}{% endset %}
         {{ form_label(form.competence, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
         {{ form_errors(form.competence) }}
         <div class="col-sm-4">
@@ -56,9 +54,9 @@
         </div>
     </div>
 
-    {% set label %}{% trans %}ajout_matiere.bouton_valider{% endtrans %}{% endset %}
+    {% set label %}{% trans %}bouton.valider{% endtrans %}{% endset %}
     {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}, 'label': label }) }}
-    <a class="btn btn-default" href="{{ path('exia_core_experience')}}">{% trans %}ajout_matiere.bouton_annuler{% endtrans %}</a>
+    <a class="btn btn-default" href="{{ path('exia_core_experience')}}">{% trans %}bouton.annuler{% endtrans %}</a>
 
 
     {{ form_rest(form) }}

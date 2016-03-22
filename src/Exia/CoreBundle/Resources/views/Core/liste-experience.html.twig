@@ -10,7 +10,7 @@
     
 <h1 class="page-header">{% trans %}liste_experience.titre{% endtrans %}
     <a  href="{{ path('exia_core_ajout_experience') }}" >
-        <span title="{% trans %}liste_matieres.tooltip.ajout{% endtrans %}" class="lefted glyphicon glyphicon-plus-sign glyph_color"></span>
+        <span title="{% trans %}tooltip.ajout{% endtrans %}" class="lefted glyphicon glyphicon-plus-sign glyph_color"></span>
     </a>
 </h1>
     
@@ -24,12 +24,12 @@
         <thead>
             <tr>
 
-                <th>{% trans %}liste_matieres.col.annee{% endtrans %}</th>
-                <th>{% trans %}liste_matieres.col.poste{% endtrans %}</th>
-                <th>{% trans %}liste_matieres.col.entreprise{% endtrans %}</th>
-                <th>{% trans %}liste_matieres.col.detail{% endtrans %}</th>
-                <th>{% trans %}liste_matieres.col.lieu{% endtrans %}</th>
-                <th>{% trans %}liste_matieres.col.competence{% endtrans %}</th>
+                <th>{% trans %}ajout_experience.col.annee{% endtrans %}</th>
+                <th>{% trans %}ajout_experience.col.poste{% endtrans %}</th>
+                <th>{% trans %}ajout_experience.col.entreprise{% endtrans %}</th>
+                <th>{% trans %}ajout_experience.col.detail{% endtrans %}</th>
+                <th>{% trans %}ajout_experience.col.lieu{% endtrans %}</th>
+                <th>{% trans %}ajout_experience.col.competence{% endtrans %}</th>
                 <th class="sorter-false small-column"></th>
                 <th class="sorter-false small-column"></th>
 
@@ -55,12 +55,12 @@
                     {% endif %}
                     <td class="centered-column-content">
                         <a  href="{{ path('exia_core_editer_experience', { 'id'  : experience.id }) }}" >
-                            <span title="{% trans %}liste_experience.tooltip.editer{% endtrans %}" class="glyphicon glyphicon-edit pointable tooltip_editer"></span>
+                            <span title="{% trans %}tooltip.editer{% endtrans %}" class="glyphicon glyphicon-edit pointable tooltip_editer"></span>
                         </a>
                     </td>
                     <td class="centered-column-content">
                         <a  href="{{ path('exia_core_supprimer_experience', { 'id'  : experience.id }) }}" >
-                            <span title="{% trans %}experience.tooltip.supprimer{% endtrans %}" class="glyphicon glyphicon-remove delete pointer tooltip_suppression"></span>
+                            <span title="{% trans %}tooltip.supprimer{% endtrans %}" class="glyphicon glyphicon-remove delete pointer tooltip_suppression"></span>
                         </a>
                     </td>
                 

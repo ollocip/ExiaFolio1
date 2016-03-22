@@ -1,13 +1,11 @@
-
-<div class="champs_requis">{% trans %}champs_requis{% endtrans %}</div>
-
+<br>
 <div class="well">
     
     {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
     {{ form_errors(form) }}
 
     <div class="form-group">
-        {% set label %}{% trans %}ajout_matiere.col.nom{% endtrans %} *{% endset %}
+        {% set label %}{% trans %}editer_competence.col.nom{% endtrans %} *{% endset %}
         {{ form_label(form.nom, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
         {{ form_errors(form.nom) }}
         <div class="col-sm-4">
@@ -15,7 +13,7 @@
         </div>
     </div>
     <div class="form-group">
-        {% set label %}{% trans %}ajout_matiere.col.niveau{% endtrans %} *{% endset %}
+        {% set label %}{% trans %}editer_competence.col.niveau{% endtrans %} *{% endset %}
         {{ form_label(form.niveau, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
         {{ form_errors(form.niveau) }}
         <div class="col-sm-4">
@@ -24,7 +22,7 @@
     </div>
     
     <div class="form-group">
-        {% set label %}{% trans %}ajout_formation.col.categoriecompetences{% endtrans %}{% endset %}
+        {% set label %}{% trans %}editer_competence.col.categoriecompetences{% endtrans %}{% endset %}
         {{ form_label(form.categoriecompetences, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
         {{ form_errors(form.categoriecompetences) }}
         <div class="col-sm-4">
@@ -32,14 +30,14 @@
 
         </div>
         <a  href="{{ path('exia_core_ajout_categoriecompetences') }}" >
-        <span title="{% trans %}liste_matieres.tooltip.ajout{% endtrans %}" class="lefted glyphicon glyphicon-plus-sign glyph_color"></span>
+        <span title="{% trans %}tooltip.ajout{% endtrans %}" class="lefted glyphicon glyphicon-plus-sign glyph_color"></span>
     </a>
     </div>
 
 
-    {% set label %}{% trans %}ajout_matiere.bouton_valider{% endtrans %}{% endset %}
+    {% set label %}{% trans %}bouton.valider{% endtrans %}{% endset %}
     {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}, 'label': label }) }}
-    <a class="btn btn-default" href="{{ path('exia_core_competences')}}">{% trans %}ajout_matiere.bouton_annuler{% endtrans %}</a>
+    <a class="btn btn-default" href="{{ path('exia_core_competences')}}">{% trans %}bouton.annuler{% endtrans %}</a>
 
 
     {{ form_rest(form) }}

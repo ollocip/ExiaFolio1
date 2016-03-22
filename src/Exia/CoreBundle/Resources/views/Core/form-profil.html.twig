@@ -1,13 +1,11 @@
-
-<div class="champs_requis">{% trans %}champs_requis{% endtrans %}</div>
-
+<br>
 <div class="well">
     
     {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
     {{ form_errors(form) }}
 
     <div class="form-group">
-        {% set label %}{% trans %}ajout_matiere.col.nom{% endtrans %} *{% endset %}
+        {% set label %}{% trans %}ajout_profil.col.nom{% endtrans %} *{% endset %}
         {{ form_label(form.nom, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
         {{ form_errors(form.nom) }}
         <div class="col-sm-4">
@@ -19,7 +17,7 @@
         </div>
     </div>
     <div class="form-group">
-        {% set label %}{% trans %}ajout_matiere.col.prenom{% endtrans %} *{% endset %}
+        {% set label %}{% trans %}ajout_profil.col.prenom{% endtrans %} *{% endset %}
         {{ form_label(form.prenom, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
         {{ form_errors(form.prenom) }}
         <div class="col-sm-4">
@@ -31,7 +29,7 @@
         </div>
     </div>
     <div class="form-group">
-        {% set label %}{% trans %}ajout_matiere.col.adresse{% endtrans %} *{% endset %}
+        {% set label %}{% trans %}ajout_profil.col.adresse{% endtrans %} *{% endset %}
         {{ form_label(form.adresse, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
         {{ form_errors(form.adresse) }}
         <div class="col-sm-4">
@@ -43,7 +41,7 @@
         </div>
     </div>
     <div class="form-group">
-        {% set label %}{% trans %}ajout_matiere.col.mail{% endtrans %} *{% endset %}
+        {% set label %}{% trans %}ajout_profil.col.mail{% endtrans %} *{% endset %}
         {{ form_label(form.mail, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
         {{ form_errors(form.mail) }}
         <div class="col-sm-4">
@@ -55,7 +53,7 @@
         </div>
     </div>
     <div class="form-group">
-        {% set label %}{% trans %}ajout_matiere.col.tel{% endtrans %} *{% endset %}
+        {% set label %}{% trans %}ajout_profil.col.tel{% endtrans %} *{% endset %}
         {{ form_label(form.tel, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
         {{ form_errors(form.tel) }}
         <div class="col-sm-4">
@@ -68,7 +66,7 @@
 
     </div>
     <div class="form-group">
-        {% set label %}{% trans %}ajout_matiere.col.message{% endtrans %} {% endset %}
+        {% set label %}{% trans %}ajout_profil.col.message{% endtrans %} {% endset %}
         {{ form_label(form.message, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
         {{ form_errors(form.message) }}
         <div class="col-sm-4">
@@ -80,7 +78,7 @@
         </div>
     </div>
     <div class="form-group">
-        {% set label %}{% trans %}ajout_matiere.col.illustration{% endtrans %} {% endset %}
+        {% set label %}{% trans %}ajout_profil.col.illustration{% endtrans %} {% endset %}
         {{ form_label(form.illustration, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
         {{ form_errors(form.illustration) }}
         <div class="col-sm-4">
@@ -94,7 +92,7 @@
     </div>
 
     <div class="form-group">
-        {% set label %}{% trans %}ajout_formation.col.theme{% endtrans %}{% endset %}
+        {% set label %}{% trans %}ajout_profil.col.theme{% endtrans %}{% endset %}
         {{ form_label(form.theme, label, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
         {{ form_errors(form.theme) }}
         <div class="col-sm-4">
@@ -103,9 +101,9 @@
         </div>
     </div>
 
-    {% set label %}{% trans %}ajout_matiere.bouton_valider{% endtrans %}{% endset %}
+    {% set label %}{% trans %}bouton.valider{% endtrans %}{% endset %}
     {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}, 'label': label }) }}
-    <a class="btn btn-default" href="{{ path('exia_core_formations')}}">{% trans %}ajout_matiere.bouton_annuler{% endtrans %}</a>
+    <a class="btn btn-default" href="{{ path('exia_core_formations')}}">{% trans %}bouton.annuler{% endtrans %}</a>
 
 
     {{ form_rest(form) }}

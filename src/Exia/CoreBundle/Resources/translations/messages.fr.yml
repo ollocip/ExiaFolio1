@@ -1,10 +1,101 @@
 site:
     titre: "ExiaFolio"
+fil_ariane:
+    configuration: "Acceuil"
 connexion:
     utilisateur: "Login"
     mot_de_passe: "Mot de passe"
     erreur: "Informations incorrectes"
-ajout_matiere:
+acceuil:
+    titre: "ExiaFolio"
+    bienvenue: "Bienvenue"
+bouton:
+    valider: "Valider"
+    annuler: "Annuler"
+tooltip:
+    ajout: "Ajouter"
+    editer: "Editer"
+    supprimer: "Supprimer"
+ajout_experience:
+    titre: "Ajouter une expérience professionnel"
+    col:
+        annee: "Année(s) en poste"
+        poste: "Poste occupé"
+        entreprise: "Nom de l'entreprise"
+        detail: "Présentation de la mission"
+        lieu: "Adresse de l'entreprise"
+        competence: "Compétences acquises"
+editer_experience:
+    titre: "Modifier une expérience"
+ajout_formation:
+    titre: "Ajouter une formation"
+    col:
+        annee: "Année(s) de la formation"
+        titre: "Nom de la formation"
+        diplome: "Diplôme obtenu"
+        lieu: "Lieu de la formation"
+        descriptif: "Description"
+editer_formation:
+    titre: "Modifier une formation"
+ajout_profil:
+    titre: "Ajouter un profil"
     col:
         nom: "Nom"
+        prenom: "Prénom"
+        adresse: "Adresse"
+        mail: "Email"
+        tel: "Téléphone"
+        message: "Description"
+        illustration: "Photo de profil"
+        theme: "Choix du thème"
+editer_profil:
+    titre: "Modifier un profil"
+ajout_projet:
+    titre: "Ajouter un projet"
+    col:
+        nom: "Intitulé du projet"
+        description: "Description"
+        illustration: "Illustration"
+        lien: "Lien vers le projet"
+        telechargement: "Ajouter le projet"
+editer_projet:
+    titre: "Modifier un projet"
+ajout_competence:
+    titre: "Ajouter une compétence"
+    col:
+        nom: "Nom de la compétence"
+        niveau: "Niveau"
+        categoriecompetences: "Catégorie de la compétence"
+editer_competence:
+    titre: "Modifier une compétence"
+    col:
+        nom: "Modifier la compétence"
+        niveau: "Modifier le niveau"
+        categoriecompetences: "Modifier la catégorie"
+ajout_categoriecompetence:
+    titre: "Ajouter une catégorie de compétence"
+    col:
+        categorie: "Catégorie"
+liste_competence:
+    titre: "Liste des compétences"
+    col:
+        nom: "Nom de la compétence"
+        niveau: "Niveau"
+        categoriecompetences: "Catégorie"
+liste_experience:
+    titre: "Liste des expériences"
+liste_formation:
+    titre: "Liste des formations"
+liste_projet:
+    titre: "Liste des projets"
+portfolio:
+    utilisateur: "Profil de"
+    profil: "Coordonnées"
+    experiences: "Expériences"
+    formations: "Formation"
+    projets: "Projets"
+    competences: "Compétences"
+profil:
+    titre: "Profil"
+
 
