@@ -8,8 +8,8 @@
     </div>
 <h1 class="page-header">{% trans %}portfolio.profil{% endtrans %}</h1>
     <div id="coordonnees">
-        {{ profil.adresse }}
-        {{ profil.mail }}
+        {{ profil.adresse }}<br>
+        {{ profil.mail }}<br>
         0{{ profil.tel }}
     </div>
 <h1 class="page-header">{% trans %}portfolio.experiences{% endtrans %}</h1>    
@@ -17,11 +17,11 @@
         {% for experience in experiences %}
             <tr>
                 <td>{{ experience.annee }}</td>
-                <td>{{ experience.entreprise }}</td>
-                <td>{{ experience.lieu }}</td>
-                <td>{{ experience.poste }}</td>
+                <td>{{ experience.entreprise }}</td><br>
+                <td>{{ experience.lieu }}</td><br>
+                <td>{{ experience.poste }}</td><br>
                 <td>{{ experience.detail }}</td>
-            </tr>
+            </tr><br><br>
         {% endfor %}
     </div>
 <h1 class="page-header">{% trans %}portfolio.formations{% endtrans %}</h1>  
@@ -29,23 +29,23 @@
         {% for formation in formations %}
             <tr>
                 <td>{{ formation.annee }}</td>
-                <td>{{ formation.titre }}</td>
-                <td>{{ formation.lieu }}</td>
-                <td>{{ formation.diplome }}</td>
+                <td>{{ formation.titre }}</td><br>
+                <td>{{ formation.lieu }}</td><br>
+                <td>{{ formation.diplome }}</td><br>
                 <td>{{ formation.descriptif }}</td>
-            </tr>
+            </tr><br><br>
         {% endfor %}
     </div>
 <h1 class="page-header">{% trans %}portfolio.projets{% endtrans %}</h1>  
     <div id="projets">
         {% for projet in projets %}
             <tr>
-                <td><img src="{{ projet.illustration }}" alt="IllustrationProjet"></td>
-                <td>{{ projet.nom }} </td>
-                <td>{{ projet.description }}</td>
-                <td>{{ projet.lien }}</td>
-                <td>{{ projet.telechargement }}</td>
-            </tr>
+                
+                <td>{{ projet.nom }} </td><br>
+                <td>{{ projet.description }}</td><br>
+                <td>{{ projet.lien }}</td><br>
+                <td>{{ projet.telechargement }}</td><br>
+            </tr><br><br>
         {% endfor %}
     </div>
 <h1 class="page-header">{% trans %}portfolio.competences{% endtrans %}</h1> 
@@ -53,10 +53,10 @@
         {% for competence in competences %}
             
                 <tr>
-                    <td>{{ competence.categorieCompetences.categorie }} </td>
-                    <td>{{ competence.nom }}</td>
+                    <td>{{ competence.nom }}</td><br>
+                    <td>{{ competence.categorieCompetences.categorie }} </td> ->
                     <td>{{ competence.niveau }}</td>
-                </tr>
+                </tr><br><br>
             
         {% endfor %}
     </div>
