@@ -261,3 +261,12 @@ footer {
         display: none;
     }
 }
+.popover{
+
+    max-width: 400px;
+    
+}
+.btn {
+    margin-bottom: 3px;
+    margin-left: 55px;
+}

@@ -1,7 +1,8 @@
 {% extends 'ExiaCoreBundle::layout.html.twig' %}
 {% block body %}
 <h1 class="page-header">{% trans %}portfolio.utilisateur{% endtrans %}  {{ profil.nom }}
-        {{ profil.prenom }}</h1>
+        {{ profil.prenom }}
+        <a href="#" class="btn btn-large btn-danger" data-toggle="popover" title="" data-placement="bottom" data-content="localhost/ExiaFolio2/web/app_dev.php/portfolio/visualiser/{{profil.id}}" data-original-title="Lien du PortFolio">Lien du PortFolio</a></h1>
     <div id="personnalisation">
         <img src="{{ profil.illustration }}" alt="Illustration">
         <p id="message">{{ profil.message }}</p>
@@ -16,13 +17,13 @@
     <div id="experiences">
         {% for experience in experiences %}
             <tr>
-                <td>{{ experience.annee }}</td>
-                <td>{{ experience.entreprise }}</td><br>
-                <td>{{ experience.lieu }}</td><br>
-                <td>{{ experience.poste }}</td><br>
-                <td>{{ experience.detail }}</td>
+                Année de l'experience: <td>{{ experience.annee }}</td>
+                dans l'entreprise : <td>{{ experience.entreprise }}</td><br>
+                Ville : <td>{{ experience.lieu }}</td><br>
+                Poste : <td>{{ experience.poste }}</td><br>
+                Détail : <td>{{ experience.detail }}</td>
                 {% if  experience.competence %}
-                    <br><td>{{ experience.competence.nom}}</td>
+                    <br>Compétence Acquise : <td>{{ experience.competence.nom}}</td>
                 {% else %}
                     <td></td>
                 {% endif %}
@@ -33,11 +34,11 @@
     <div id="formations">
         {% for formation in formations %}
             <tr>
-                <td>{{ formation.diplome }}</td>
-                <td>{{ formation.titre }}</td><br>
-                <td>{{ formation.annee }}</td>
-                <td>{{ formation.lieu }}</td><br>
-                <td>{{ formation.descriptif }}</td>
+               Diplome obtenue : <td>{{ formation.diplome }}</td> ->
+                Titre de la formation : <td>{{ formation.titre }}</td><br>
+                Année : <td>{{ formation.annee }}</td>
+                Lieu : <td>{{ formation.lieu }}</td><br>
+                Description : <td>{{ formation.descriptif }}</td>
             </tr><br><br>
         {% endfor %}
     </div>
@@ -46,10 +47,10 @@
         {% for projet in projets %}
             <tr>
                 
-                <td>{{ projet.nom }} </td><br>
-                <td>{{ projet.description }}</td><br>
-                <td>{{ projet.lien }}</td><br>
-                <td>{{ projet.telechargement }}</td><br>
+                Nom : <td>{{ projet.nom }} </td><br>
+                Description : <td>{{ projet.description }}</td><br>
+                Lien du projet : <td>{{ projet.lien }}</td><br>
+                Telechargement du projet : <td>{{ projet.telechargement }}</td><br>
             </tr><br><br>
         {% endfor %}
     </div>
@@ -58,11 +59,18 @@
         {% for competence in competences %}
             
                 <tr>
-                    <td>{{ competence.nom }}</td><br>
-                    <td>{{ competence.categorieCompetences.categorie }} </td> ->
-                    <td>{{ competence.niveau }}</td>
+                    Nom : <td>{{ competence.nom }}</td><br>
+                    Categorie : <td>{{ competence.categorieCompetences.categorie }} </td> <br>
+                    Niveau : <td>{{ competence.niveau }}</td>
                 </tr><br><br>
             
         {% endfor %}
     </div>
+{% endblock %}
+{% block appendablejs %}
+
+<script type="text/javascript">
+$("[data-toggle=popover]").popover();
+</script>
+
 {% endblock %}
