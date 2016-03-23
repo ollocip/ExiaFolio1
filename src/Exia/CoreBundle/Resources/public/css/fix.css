@@ -93,6 +93,9 @@ body {
     flex: 1 1 auto;
     align-self: center;
 }
+#navigation span{
+    display: none;
+}
 #menu {
     display: flex;
     flex-direction: row;
@@ -135,7 +138,10 @@ body {
     }
 #bar-utilisateur a {
         text-decoration: none;
-    }
+}
+#bar-utilisateur span {
+    display: none;
+}
 #bar-rouge {
     margin: 0;
     height: 20px;
@@ -182,7 +188,7 @@ footer {
     margin-top: 20px;
     text-align: center;
 }
-#contact a{
+#contact a {
     text-decoration: none;
     color: #EE2C2C;
 }
@@ -193,13 +199,58 @@ footer {
     align-items: center;
 }
 /****************************************************************************************************** MEDIA ***********************************************************************************************************/
-@media (max-width: 700px){
+@media (max-width: 975px) {
+    #menu li:hover a{
+        padding: 20px 10px 24.5px 10px;
+    }
+}
+@media (max-width: 970px) {
+    #logo {
+        display: none;
+    }
+}
+@media (max-width: 830px) {
+    #logo {
+        order: 2;
+        flex: 1 1 auto;
+
+        display: flex;
+        align-content: center;
+        align-items: center;
+    }
+    #logo img {
+        width: 50px;
+        height: 50px;
+        align-self: center;
+    }
+    #logo:hover {
+        width: 50px;
+        height: 50px;
+    }
+    #menu {
+        display: none;
+    }
+    #navigation {
+        order: 1;
+        flex: 0 1 auto;
+    }
+    #navigation span {
+        display: block;
+    }
+    #bar-utilisateur p {
+        display: none;
+    }
+    #bar-utilisateur span {
+        display: block;
+    }
+}
+@media (max-width: 700px) {
     #bloc_connexion {
         transition: .5s;
         margin: 0;
     }
 }
-@media (max-width: 195px){
+@media (max-width: 195px) {
     #logo_connexion {
         transition: .5s;
         width: 100px;

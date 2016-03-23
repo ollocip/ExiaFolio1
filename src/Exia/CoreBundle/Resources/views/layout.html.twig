@@ -39,6 +39,7 @@
         </div>
 
         <div id="navigation">
+            <a href="#"><span title="menu" class="glyphicon glyphicon-menu-hamburger"></span></a>
             <ul id="menu">
                 <li><a href="{{ path('exia_core_homepage') }}">Accueil</a></li>
                 <li><a href="{{ path('exia_core_profil') }}">Profil</a></li>
@@ -52,6 +53,7 @@
 
         <div class="form-group" id="bar-utilisateur">
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <a href="{{ path('logout') }}"><span title="logout" class="glyphicon glyphicon-off"></span></a>
                     <p id="affiche-connexion">Connecté en tant que <b>{{ app.user.username }}</b> <br> <a id="btn_deconnexion" href="{{ path('logout') }}">Déconnexion</a></p>
                 {% endif %}
         </div>

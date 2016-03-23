@@ -22,75 +22,6 @@ use Exia\CoreBundle\Form\ExperienceType;
 class CoreController extends Controller
 {
 /*Systeme de connexion au site*/
-
-       public function ProfilAction(Request $request)
-    {
-
-        $em = $this->getDoctrine()->getManager();
-        $user_id = $this->getUser()->getId();
-        $profil = $em->getRepository('ExiaCoreBundle:Profil')->findOneByUser($user_id);
-        if ($profil!= null){
-            return $this->render('ExiaCoreBundle:Core:profil.html.twig', array('profil' => $profil));
-        }
-        else {
-            $profil = new Profil();
-            $profil->setUser($this->getUser());
-            $form = $this->createForm(new ProfilType(), $profil);
-            $form->handleRequest($request);
-            if ($form->isValid()) 
-        {   
-            $em->persist($profil);
-            $em->flush();
-
-            $request->getSession()->getFlashBag()->add('notice', 'Profil enregistrée.');
-
-            return $this->redirect($this->generateUrl('exia_core_profil'));
-        }
-            return $this->render('ExiaCoreBundle:Core:ajout-profil.html.twig', array('form' => $form->createView()) );
-        }
-    }
-     public function AjoutProfilAction(Request $request)
-    {
-        $profil = new Profil();
-        
-        $em = $this->getDoctrine()->getManager();
-        $profil->setUser($this->getUser());
-        $form = $this->createForm(new ProfilType(), $profil);
-        $form->handleRequest($request);
-        
-        if ($form->isValid()) 
-        {   
-            $em->persist($profil);
-            $em->flush();
-
-            $request->getSession()->getFlashBag()->add('notice', 'Profil enregistrée.');
-
-            return $this->redirect($this->generateUrl('exia_core_profil'));
-        }
-        
-        return $this->render('ExiaCoreBundle:Core:ajout-profil.html.twig', array('form' => $form->createView()) );
-    }
-    public function editerProfilAction(Request $request, profil $id)
-    {
-        $em = $this->getDoctrine()->getManager();    
-        $form = $this->createForm(new ProfilType(), $id);
-        $form->handleRequest($request);
-
-        if ($form->isValid()) 
-        {    
-            
-            
-            $em->persist($id);
-            $em->flush();
-
-            $request->getSession()->getFlashBag()->add('notice', 'Profil modifié.');
-
-            return $this->redirect($this->generateUrl('exia_core_profil', array('id' => $id->getId() )));
-        }
-        
-        return $this->render('ExiaCoreBundle:Core:editer-profil.html.twig', array('form' => $form->createView(), 'professeur' => $id));
-    }
-
     public function indexAction(Request $request)
     {
          if ($this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
@@ -106,8 +37,8 @@ class CoreController extends Controller
             $profil->setUser($this->getUser());
             $form = $this->createForm(new ProfilType(), $profil);
             $form->handleRequest($request);
-            if ($form->isValid()) 
-        {   
+            if ($form->isValid())
+        {
             $em->persist($profil);
             $em->flush();
 
