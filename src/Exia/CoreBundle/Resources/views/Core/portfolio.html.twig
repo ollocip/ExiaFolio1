@@ -8,9 +8,9 @@
     </div>
 <h1 class="page-header">{% trans %}portfolio.profil{% endtrans %}</h1>
     <div id="coordonnees">
-        {{ profil.adresse }}<br>
-        {{ profil.mail }}<br>
-        0{{ profil.tel }}
+        Adresse: {{ profil.adresse }}<br>
+        Mail: {{ profil.mail }}<br>
+        Tel: 0{{ profil.tel }}
     </div>
 <h1 class="page-header">{% trans %}portfolio.experiences{% endtrans %}</h1>    
     <div id="experiences">
@@ -21,6 +21,11 @@
                 <td>{{ experience.lieu }}</td><br>
                 <td>{{ experience.poste }}</td><br>
                 <td>{{ experience.detail }}</td>
+                {% if  experience.competence %}
+                    <br><td>{{ experience.competence.nom}}</td>
+                {% else %}
+                    <td></td>
+                {% endif %}
             </tr><br><br>
         {% endfor %}
     </div>
@@ -28,10 +33,10 @@
     <div id="formations">
         {% for formation in formations %}
             <tr>
-                <td>{{ formation.annee }}</td>
+                <td>{{ formation.diplome }}</td>
                 <td>{{ formation.titre }}</td><br>
+                <td>{{ formation.annee }}</td>
                 <td>{{ formation.lieu }}</td><br>
-                <td>{{ formation.diplome }}</td><br>
                 <td>{{ formation.descriptif }}</td>
             </tr><br><br>
         {% endfor %}

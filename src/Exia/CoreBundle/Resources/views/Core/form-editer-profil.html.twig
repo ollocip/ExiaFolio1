@@ -102,7 +102,7 @@
 
     {% set label %}{% trans %}bouton.valider{% endtrans %}{% endset %}
     {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}, 'label': label }) }}
-    <a class="btn btn-default" href="{{ path('exia_core_formations')}}">{% trans %}bouton.annuler{% endtrans %}</a>
+    <a class="btn btn-default" href="{{ path('exia_core_profil')}}">{% trans %}bouton.annuler{% endtrans %}</a>
 
 
     {{ form_rest(form) }}

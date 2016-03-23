@@ -21,6 +21,76 @@ use Exia\CoreBundle\Form\ExperienceType;
 
 class CoreController extends Controller
 {
+/*Systeme de connexion au site*/
+
+       public function ProfilAction(Request $request)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $user_id = $this->getUser()->getId();
+        $profil = $em->getRepository('ExiaCoreBundle:Profil')->findOneByUser($user_id);
+        if ($profil!= null){
+            return $this->render('ExiaCoreBundle:Core:profil.html.twig', array('profil' => $profil));
+        }
+        else {
+            $profil = new Profil();
+            $profil->setUser($this->getUser());
+            $form = $this->createForm(new ProfilType(), $profil);
+            $form->handleRequest($request);
+            if ($form->isValid()) 
+        {   
+            $em->persist($profil);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'Profil enregistrée.');
+
+            return $this->redirect($this->generateUrl('exia_core_profil'));
+        }
+            return $this->render('ExiaCoreBundle:Core:ajout-profil.html.twig', array('form' => $form->createView()) );
+        }
+    }
+     public function AjoutProfilAction(Request $request)
+    {
+        $profil = new Profil();
+        
+        $em = $this->getDoctrine()->getManager();
+        $profil->setUser($this->getUser());
+        $form = $this->createForm(new ProfilType(), $profil);
+        $form->handleRequest($request);
+        
+        if ($form->isValid()) 
+        {   
+            $em->persist($profil);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'Profil enregistrée.');
+
+            return $this->redirect($this->generateUrl('exia_core_profil'));
+        }
+        
+        return $this->render('ExiaCoreBundle:Core:ajout-profil.html.twig', array('form' => $form->createView()) );
+    }
+    public function editerProfilAction(Request $request, profil $id)
+    {
+        $em = $this->getDoctrine()->getManager();    
+        $form = $this->createForm(new ProfilType(), $id);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) 
+        {    
+            
+            
+            $em->persist($id);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'Profil modifié.');
+
+            return $this->redirect($this->generateUrl('exia_core_profil', array('id' => $id->getId() )));
+        }
+        
+        return $this->render('ExiaCoreBundle:Core:editer-profil.html.twig', array('form' => $form->createView(), 'professeur' => $id));
+    }
+
     public function indexAction(Request $request)
     {
          if ($this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
@@ -58,76 +128,7 @@ class CoreController extends Controller
     }
 
 
-
-
-
-
-
-
-     public function formationsAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $id= $this->getUser()->getProfil();
-        $formations = $em->getRepository('ExiaCoreBundle:Formation')->findByProfil($id);
-        return $this->render('ExiaCoreBundle:Core:liste-formation.html.twig', array('formations' => $formations));
-    }
-     public function AjoutFormationAction(Request $request)
-    {
-        $formation = new formation();
-        
-        $em = $this->getDoctrine()->getManager();
-        $formation->setProfil($this->getUser()->getProfil());
-        $form = $this->createForm(new FormationType(), $formation);
-        $form->handleRequest($request);
-        
-        if ($form->isValid()) 
-        {   
-            $em->persist($formation);
-            $em->flush();
-
-            $request->getSession()->getFlashBag()->add('notice', 'Formation enregistrée.');
-
-            return $this->redirect($this->generateUrl('exia_core_formations'));
-        }
-        
-        return $this->render('ExiaCoreBundle:Core:ajout-formation.html.twig', array('form' => $form->createView()) );
-    }
-    public function editerFormationAction(Request $request, formation $id)
-    {
-        $em = $this->getDoctrine()->getManager();    
-        $form = $this->createForm(new FormationType(), $id);
-        $form->handleRequest($request);
-
-        if ($form->isValid()) 
-        {    
-            
-            
-            $em->persist($id);
-            $em->flush();
-
-            $request->getSession()->getFlashBag()->add('notice', 'Professeur modifié.');
-
-            return $this->redirect($this->generateUrl('exia_core_formations', array('id' => $id->getId() )));
-        }
-        
-        return $this->render('ExiaCoreBundle:Core:editer-formation.html.twig', array('form' => $form->createView(), 'professeur' => $id));
-    }
-       public function supprimerFormationAction(Request $request, formation $id)
-    {
-        $em = $this->getDoctrine()->getManager(); 
-        $em->remove($id);      
-        $em->flush();
-
-        return $this->redirect($this->generateUrl('exia_core_formations'));
-    }
-    
-
-
-
-
-
-
-
+/*Ajout, affichage, edition du profil*/
 
        public function ProfilAction(Request $request)
     {
@@ -200,14 +201,70 @@ class CoreController extends Controller
 
 
 
+/*Ajout, affichage, edition et suppression de formation*/
+
+     public function formationsAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $id= $this->getUser()->getProfil();
+        $formations = $em->getRepository('ExiaCoreBundle:Formation')->findByProfil($id);
+        return $this->render('ExiaCoreBundle:Core:liste-formation.html.twig', array('formations' => $formations));
+    }
+     public function AjoutFormationAction(Request $request)
+    {
+        $formation = new formation();
+        
+        $em = $this->getDoctrine()->getManager();
+        $formation->setProfil($this->getUser()->getProfil());
+        $form = $this->createForm(new FormationType(), $formation);
+        $form->handleRequest($request);
+        
+        if ($form->isValid()) 
+        {   
+            $em->persist($formation);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'Formation enregistrée.');
+
+            return $this->redirect($this->generateUrl('exia_core_formations'));
+        }
+        
+        return $this->render('ExiaCoreBundle:Core:ajout-formation.html.twig', array('form' => $form->createView()) );
+    }
+    public function editerFormationAction(Request $request, formation $id)
+    {
+        $em = $this->getDoctrine()->getManager();    
+        $form = $this->createForm(new FormationType(), $id);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) 
+        {    
+            
+            
+            $em->persist($id);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'Professeur modifié.');
+
+            return $this->redirect($this->generateUrl('exia_core_formations', array('id' => $id->getId() )));
+        }
+        
+        return $this->render('ExiaCoreBundle:Core:editer-formation.html.twig', array('form' => $form->createView(), 'professeur' => $id));
+    }
+       public function supprimerFormationAction(Request $request, formation $id)
+    {
+        $em = $this->getDoctrine()->getManager(); 
+        $em->remove($id);      
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('exia_core_formations'));
+    }
 
 
 
 
 
-
-
-
+/*Ajout, affichage, edition et suppression de competence*/
 
     public function competencesAction()
     {
@@ -268,9 +325,7 @@ class CoreController extends Controller
 
 
 
-
-
-
+/*Ajout de categorie de competence*/
 
     public function AjoutCategorieCompetencesAction(Request $request)
     {
@@ -296,15 +351,7 @@ class CoreController extends Controller
 
 
 
-
-
-
-
-
-
-
-
-
+/*Ajout, affichage, edition et suppression de projet*/
 
     public function ProjetAction()
     {
@@ -365,14 +412,7 @@ class CoreController extends Controller
 
 
 
-
-
-
-
-
-
-
-
+/*Ajout, affichage, edition et suppression de l'experience*/
 
 
     public function ExperienceAction()
@@ -431,6 +471,11 @@ class CoreController extends Controller
 
         return $this->redirect($this->generateUrl('exia_core_experience'));
     }
+
+
+/*Affichage du portfolio*/
+
+
 
     public function PortfolioAction()
     {
