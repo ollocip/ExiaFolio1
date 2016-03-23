@@ -181,8 +181,6 @@ footer {
     height: 80px;
     position: relative;
     clear:both;
-    
-   
 }
 #contact {
     margin-top: 20px;
@@ -191,12 +189,6 @@ footer {
 #contact a {
     text-decoration: none;
     color: #EE2C2C;
-}
-#social {
-    display: flex;
-    flex-direction: row wrap;
-    align-content: center;
-    align-items: center;
 }
 /****************************************************************************************************** MEDIA ***********************************************************************************************************/
 @media (max-width: 975px) {
